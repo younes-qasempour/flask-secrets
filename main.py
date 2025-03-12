@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms.validators import DataRequired, Email, Length # pip install email-validator
+from flask_bootstrap import Bootstrap5 # pip install bootstrap-flask
+
 
 
 class LoginForm(FlaskForm):
@@ -12,6 +14,8 @@ class LoginForm(FlaskForm):
 
 app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
+
+bootstrap = Bootstrap5(app)
 
 @app.route("/")
 def home():
